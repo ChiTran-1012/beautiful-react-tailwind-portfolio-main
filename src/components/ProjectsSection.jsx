@@ -17,8 +17,8 @@ const projects = [
       "Interactive analytics dashboard with data visualization and filtering capabilities.",
     image: "/projects/Movie.png",
     tags: ["React", "TailwindCSS"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ChiTran-1012/Movie",
+    demoUrl: "https://movie-main-chi.vercel.app/",
+    githubUrl: "https://github.com/ChiTran-1012/Movie-main",
   },
   {
     id: 3,
