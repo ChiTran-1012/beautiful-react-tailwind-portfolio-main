@@ -11,24 +11,43 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+
 
 export const ContactSection = () => {
+  const formRef = useRef();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    emailjs
+      .sendForm(
+        "service_715efpe",    // Thay bằng Service ID trong EmailJS
+        "template_h0ov5ki",   // Thay bằng Template ID trong EmailJS
+        formRef.current,      // Truyền ref của form
+        "brb6p-rneV5m5wCqk"     // Thay bằng Public Key trong EmailJS
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setIsSubmitting(false);
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1500);
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -113,7 +132,8 @@ export const ContactSection = () => {
           >
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+
               <div>
                 <label
                   htmlFor="name"

@@ -22,13 +22,13 @@ const projects = [
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Plan Schedule",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A web application to help users manage and organize their tasks effectively.",
+    image: "/projects/plan.png",
+    tags: ["React", "Tailwind", "Firebase"],
+    demoUrl: "https://plan-beta-two.vercel.app/",
+    githubUrl: "https://github.com/ChiTran-1012/Plan",
   },
 ];
 
