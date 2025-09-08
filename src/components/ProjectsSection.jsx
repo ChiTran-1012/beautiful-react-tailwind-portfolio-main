@@ -7,7 +7,7 @@ const projects = [
     description: "A beautiful coffee web using React and Tailwind.",
     image: "/projects/coffee.png",
     tags: ["React", "TailwindCSS", "Php"],
-    demoUrl: "#",
+    demoUrl: "https://coffee-shop-three-phi.vercel.app/",
     githubUrl: "https://github.com/ChiTran-1012/Coffee-Shop",
   },
   {
